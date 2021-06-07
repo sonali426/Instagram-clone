@@ -13,9 +13,9 @@ function Post(props) {
     
             <img className = "post_image" src = {props.imgUrl} alt = "post"></img>
 
-            <h4 className="post_text"><strong>{props.username}</strong>{props.caption}</h4>
+            <h4 className="post_text"><strong>{props.username}</strong> {props.caption}</h4>
         </div>
     )
 }
 
-export default Post
+export default Post;

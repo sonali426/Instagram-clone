@@ -8,3 +8,8 @@
 .App{
   background-color: #fafafa;
 }
+
+.app_signup{
+  display: flex;
+  flex-direction: column;
+}
