@@ -1,15 +1,25 @@
-.app_header{
+.app_header {
   background-color: white;
   border-bottom: 1px solid lightgrey;
   padding: 20px;
   object-fit: contain; /** keep the aspect ratio perfect all the time. Do not stretch.*/
+  display: flex;
+  justify-content: space-between;
 }
 
-.App{
+.App {
   background-color: #fafafa;
 }
 
-.app_signup{
+.app_signup {
   display: flex;
   flex-direction: column;
+}
+
+.app_headerImage {
+  object-fit: contain;
+}
+
+.app_posts {
+  padding: 20px;
 }
