@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+  debugger;
   const classes = useStyles();
   const [posts, setPosts] = useState([]);
   const [open, setOpen] = useState(false);
@@ -39,18 +40,20 @@ function App() {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const modalStyle = useState(getModalStyle);
+  let url = "https://firebasestorage.googleapis.com/v0/b/instagram-clone-b98e5.appspot.com/o/images%2Fwallpaperflare.com_wallpaper%20(3).jpg?alt=media&token=aaf72f74-93c1-4152-9e92-18ae5661b3e3"
   // runs a piece of code based on some conditions
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
       setPosts(
-        snapshot.docs.map((doc) => ({
+        snapshot.docs.map((doc) => (
+          {
           id: doc.id,
           post: doc.data(),
-        }))
+          imgUrl:doc.data().imageUrl
+        })) 
       );
     });
   }, []);
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
@@ -176,16 +179,15 @@ function App() {
           </div>
         )}
       </div>
-
       <div className="app_posts">
-        {posts.map(({ id, post }) => (
+        {posts.map(({ id, post, imgUrl }) => (
           <Post
             key={id}
             signedInUser = {user}
             postId = {id}
             username={post.username}
             caption={post.caption}
-            imgUrl={post.imgUrl}
+            imgUrl={imgUrl}
           ></Post>
         ))}
       </div>

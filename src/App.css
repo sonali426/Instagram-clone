@@ -5,6 +5,8 @@
   object-fit: contain; /** keep the aspect ratio perfect all the time. Do not stretch.*/
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
 }
 
 .App {
